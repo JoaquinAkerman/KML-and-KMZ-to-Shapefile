@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KML to Shapefile (Agras T50)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>KML to Shapefile Converter</h1>
+      <p class="subtitle">Agras T50 compatible output in WGS 84 (EPSG:4326)</p>
+
+      <form id="convertForm">
+        <label for="kmlFile">Select a KML file</label>
+        <input id="kmlFile" name="kmlFile" type="file" accept=".kml,application/vnd.google-earth.kml+xml" required />
+
+        <button type="submit">Convert and Download ZIP</button>
+      </form>
+
+      <p id="status" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
