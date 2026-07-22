@@ -1,7 +1,7 @@
 {
   "name": "kml-to-shapefile",
   "version": "1.0.0",
-  "description": "Web converter from KML to ESRI Shapefile (EPSG:4326)",
+  "description": "Web converter from KMZ/KML to ESRI Shapefile (EPSG:4326)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -12,8 +12,9 @@
   "type": "commonjs",
   "dependencies": {
     "@tmcw/togeojson": "^7.1.2",
+    "@xmldom/xmldom": "^0.9.10",
+    "adm-zip": "^0.6.0",
     "express": "^5.2.1",
-    "jsdom": "^29.1.0",
     "multer": "^2.1.1",
     "shp-write": "^0.3.2"
   }

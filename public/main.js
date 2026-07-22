@@ -7,12 +7,27 @@ function setStatus(message, isError = false) {
   statusEl.style.color = isError ? "#b42318" : "#027a48";
 }
 
+function buildServerErrorMessage(payload) {
+  if (!payload || typeof payload !== "object") {
+    return "Conversion failed";
+  }
+
+  const mainError = typeof payload.error === "string" ? payload.error.trim() : "";
+  const details = typeof payload.details === "string" ? payload.details.trim() : "";
+
+  if (mainError && details) {
+    return `${mainError}\nDetails: ${details}`;
+  }
+
+  return mainError || details || "Conversion failed";
+}
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const file = fileInput.files[0];
   if (!file) {
-    setStatus("Please choose a KML file.", true);
+    setStatus("Please choose a KMZ or KML file.", true);
     return;
   }
 
@@ -29,14 +44,17 @@ form.addEventListener("submit", async (event) => {
 
     if (!response.ok) {
       const payload = await response.json().catch(() => ({}));
-      throw new Error(payload.error || "Conversion failed");
+      throw new Error(buildServerErrorMessage(payload));
     }
 
     const blob = await response.blob();
+    const disposition = response.headers.get("Content-Disposition");
+    const filenameMatch = disposition?.match(/filename="([^"]+)"/);
+    const downloadName = filenameMatch?.[1] || "converted.zip";
     const downloadUrl = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = downloadUrl;
-    a.download = "agras_t50_epsg4326.zip";
+    a.download = downloadName;
     document.body.appendChild(a);
     a.click();
     a.remove();

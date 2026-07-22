@@ -61,4 +61,5 @@ button:hover {
 #status {
   margin-top: 16px;
   min-height: 22px;
+  white-space: pre-line;
 }

@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KML to Shapefile (Agras T50)</title>
+    <title>KMZ/KML to Shapefile (Agras T50)</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="container">
-      <h1>KML to Shapefile Converter</h1>
-      <p class="subtitle">Agras T50 compatible output in WGS 84 (EPSG:4326)</p>
+      <h1>KMZ/KML to Shapefile Converter</h1>
+      <p class="subtitle">Convert KMZ or KML to Agras T50 compatible shapefile in WGS 84 (EPSG:4326)</p>
 
       <form id="convertForm">
-        <label for="kmlFile">Select a KML file</label>
-        <input id="kmlFile" name="kmlFile" type="file" accept=".kml,application/vnd.google-earth.kml+xml" required />
+        <label for="kmlFile">Select a KMZ or KML file</label>
+        <input id="kmlFile" name="kmlFile" type="file" accept=".kmz,.kml,application/vnd.google-earth.kmz,application/vnd.google-earth.kml+xml" required />
 
         <button type="submit">Convert and Download ZIP</button>
       </form>
