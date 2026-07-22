@@ -118,16 +118,16 @@ app.post("/api/convert", upload.single("kmlFile"), async (req, res) => {
       return res.status(400).json({ error: "No geometries found in the KMZ/KML file." });
     }
 
-    const zipBuffer = shpwrite.zip(normalizedGeojson, {
-      folder: `${baseName}/${baseName}`,
-      outputType: "nodebuffer",
-      compression: "DEFLATE",
-      types: {
-        point: "points",
-        polygon: "polygons",
-        polyline: "lines"
-      }
-    });
+ const zipBuffer = shpwrite.zip(normalizedGeojson, {
+  folder: baseName,
+  outputType: "nodebuffer",
+  compression: "DEFLATE",
+  types: {
+    point: `${baseName}_points`,
+    polygon: baseName,
+    polyline: `${baseName}_lines`
+  }
+});
 
     res.setHeader("Content-Type", "application/zip");
     res.setHeader("Content-Disposition", `attachment; filename="${baseName}.zip"`);
@@ -140,6 +140,22 @@ app.post("/api/convert", upload.single("kmlFile"), async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`KMZ/KML to Shapefile server running at http://localhost:${PORT}`);
+// Ruta simple para comprobar que Express funciona en Vercel
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    ok: true,
+    message: "KMZ/KML converter API is running"
+  });
 });
+
+// Vercel importa la aplicación Express
+module.exports = app;
+
+// Solo abre un puerto cuando se ejecuta localmente con `npm start`
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(
+      `KMZ/KML to Shapefile server running at http://localhost:${PORT}`
+    );
+  });
+}
