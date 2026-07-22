@@ -1,11 +1,13 @@
 const express = require("express");
 const multer = require("multer");
 const AdmZip = require("adm-zip");
+const path = require("path");
 const { DOMParser } = require("@xmldom/xmldom");
 const tj = require("@tmcw/togeojson");
 const shpwrite = require("shp-write");
 
 const app = express();
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
@@ -14,9 +16,13 @@ const upload = multer({
 });
 
 const PORT = process.env.PORT || 3000;
+const publicDirectory = path.join(__dirname, "public");
 
-app.use(express.static("public"));
+app.use(express.static(publicDirectory));
 
+app.get("/", (req, res) => {
+  res.redirect(302, "/index.html");
+});
 function getBaseName(originalname = "") {
   const withoutExtension = originalname.replace(/\.[^.\\/]+$/, "");
   const sanitized = withoutExtension.replace(/[<>:"/\\|?*\x00-\x1F]/g, "_").trim();
