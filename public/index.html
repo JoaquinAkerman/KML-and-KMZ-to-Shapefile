@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,14 +8,14 @@
   </head>
   <body>
     <main class="container">
-      <h1>KMZ/KML to Shapefile Converter</h1>
-      <p class="subtitle">Convert KMZ or KML to Agras T50 compatible shapefile in WGS 84 (EPSG:4326)</p>
+      <h1>Convertidor KMZ/KML a Shapefile (Agras T50)</h1>
+      <p class="subtitle">Convierte KMZ o KML a shapefile compatible con Agras T50 en WGS 84 (EPSG:4326)</p>
 
       <form id="convertForm">
-        <label for="kmlFile">Select a KMZ or KML file</label>
+        <label for="kmlFile">Selecciona un archivo KMZ o KML</label>
         <input id="kmlFile" name="kmlFile" type="file" accept=".kmz,.kml,application/vnd.google-earth.kmz,application/vnd.google-earth.kml+xml" required />
 
-        <button type="submit">Convert and Download ZIP</button>
+        <button type="submit">Convertir y Descargar ZIP</button>
       </form>
 
       <p id="status" role="status" aria-live="polite"></p>
