@@ -65,7 +65,6 @@ function addPolygonGeometries(geometry, properties, output) {
     }
   }
 
-  // Los puntos y las líneas se ignoran.
 }
 
 function normalizeToEpsg4326(geojson, baseName) {
