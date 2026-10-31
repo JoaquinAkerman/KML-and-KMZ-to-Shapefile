@@ -63,3 +63,33 @@ button:hover {
   min-height: 22px;
   white-space: pre-line;
 }
+
+
+/* Sección Cafecito */
+.cafecito {
+  text-align: center;
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.cafecito p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.cafecito-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 22px;
+  background-color: #e8b734;
+  color: #252525;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.cafecito-btn:hover {
+  background-color: #d5a62a;
+}
