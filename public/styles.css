@@ -93,3 +93,40 @@ button:hover {
 .cafecito-btn:hover {
   background-color: #d5a62a;
 }
+
+
+
+/* Tutorial de YouTube */
+.tutorial {
+  text-align: center;
+  margin-top: 30px;
+  padding: 22px 16px;
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.tutorial-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.tutorial p {
+  line-height: 1.5;
+}
+
+.tutorial-btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 20px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.tutorial-btn:hover {
+  background: #b91c1c;
+}
