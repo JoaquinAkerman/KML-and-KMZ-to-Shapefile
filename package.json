@@ -12,6 +12,7 @@
   "type": "commonjs",
   "dependencies": {
     "@tmcw/togeojson": "^7.1.2",
+    "@vercel/analytics": "^2.0.1",
     "@xmldom/xmldom": "^0.9.10",
     "adm-zip": "^0.6.0",
     "express": "^5.2.1",
